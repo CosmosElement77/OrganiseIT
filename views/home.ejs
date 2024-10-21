@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note It Down</title>
+    <link rel="stylesheet" href="../styles/note.css">
+    <!-- <script src="../styles/note.js"></script> -->
+    <link rel="stylesheet" href="/styles/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<nav class="navbar nav" id="navbox">
+<div class="container">
+    <ul class="nav navbar-right">
+    <li id="pfp" type="Icon"><img src="/images/contact.jpeg" alt="pfp icon" ><b><%= username %></b></li>
+    <span><a href="/AI_text_summarizer">Here For AI</a></span>
+    <li><a id="home" href="/logout" title="logout" onclick="logout()"><img src="/images/download.jpeg" ></a></li>
+    </ul>
+</div>
+</nav>
+<body>
+<!-- NOTES BASIC  -->
+    <!-- <div id="contain">
+        <div id="list-header">
+            <div id="addNoteDiv" onclick="popup()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="blankDiv"></div>
+            <div class="blankDiv"></div>
+        </div>
+        
+        <div id="list-container">
+            <ul id="notes-list"></ul>
+        </div>
+    </div> -->
+<!-- . -->
+
+    <footer id="footer">
+        <p>Copyright 2024 &copy; Note It Down. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+    function logout() {
+        // let a =confirm("Do you want to logout ?");
+        alert("Logged Out Successfully");
+    }
+</script>
+</html>

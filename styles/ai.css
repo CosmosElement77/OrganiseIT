@@ -1,0 +1,105 @@
+html{
+    background-color: #394a3c;
+    overflow-x: hidden;
+    /* border: 2px solid black; */
+}
+#home img{
+    padding: 5px 15px 0 15px;
+    width:40px;height: 35px;
+    filter: invert();/*Inverses the colors of the object*/
+    user-select: none;/*Makes the content unselectable using the mouse cursor*/
+}
+h1{
+    position: relative;
+    color: rgb(161, 245, 245);
+    left: 42%;
+    top: 110px;
+    font-size: 4em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    user-select: none;
+}
+h4{
+    position: relative;
+    left: 50%;
+    color: antiquewhite;
+    justify-content: center;
+    top: 50px;
+    user-select: none;
+    font-family: cursive;
+}
+#input{
+    position: relative; 
+    left: 32%;width: 500px;height: 40px;
+    top: 90px;
+    font-size: larger;
+    border-radius: 15px;
+    border-width: 3px;
+    font-weight: 700;
+    resize: none;
+    padding-left: 10px;
+    color: rgb(30, 50, 30);
+}
+
+i{position: relative;top: 115px;left: -10%;color: aquamarine;
+    text-decoration: underline;user-select: none;}
+#ask{
+    position: relative;
+    left: 30%;top: 70px;
+    width: 70px;height: 30px;
+    border-radius: 20px;
+    font-weight: 500;;
+    background-color: greenyellow;
+    border: 2px solid black;
+    cursor: pointer;
+}
+#ask:hover{
+    background-color: black;color: white;border-radius: 50%;
+    width:50px;height: 50px;
+    transition: ease 1s;
+}
+#ask:not(:hover){
+    transition: 1s ease;
+}
+output{
+    position: relative;
+    top: 120px;
+    display: block;
+    width: 500px;
+    justify-content: center;
+    left: 32.5%;
+    padding-bottom: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;color: rgb(244, 244, 127);
+}
+
+@media screen and (max-width:600px)  {
+    html{
+        overflow-x: hidden;
+
+    }
+    body{
+        width: 98%;height: 100%;
+    }
+    #home img{
+        /* filter: invert(); */
+        width: 3.4em;height: 3em;
+    }
+    body h1{
+        font-size: 6em;left: 110px;width: 90px;
+    }
+    body h4{
+        font-size: 14px;width: 200px;left: 105px;
+    }
+    #ask{
+        width: 60px;top: 100px;
+        margin-left: -100px;
+    }
+    #input{
+        width: 300px;left: 40px;top: 60px;
+    }
+    i{margin-left: -235px;top: 134px;}
+    output{
+        left: 47px;width: 300px;top: 140px;
+    }
+}
+
