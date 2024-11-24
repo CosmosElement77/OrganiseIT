@@ -3,48 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Note It Down</title>
-    <link rel="stylesheet" href="../styles/note.css">
-    <!-- <script src="../styles/note.js"></script> -->
+    <title>OrganiseIT</title>
+    <link rel="stylesheet" href="../styles/home.css">
     <link rel="stylesheet" href="/styles/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="/images/Logo.png" >    
 </head>
 
-<nav class="navbar nav" id="navbox">
-<div class="container">
-    <ul class="nav navbar-right">
-    <li id="pfp" type="Icon"><img src="/images/contact.jpeg" alt="pfp icon" ><b><%= username %></b></li>
-    <span><a href="/AI_text_summarizer">Here For AI</a></span>
-    <li><a id="home" href="/logout" title="logout" onclick="logout()"><img src="/images/download.jpeg" ></a></li>
+<nav class=" navbar-left" id="navbox">
+    <ul >
+    <li id="pfp" type="Icon"><a><img src="/images/contact.jpeg" alt="pfp icon" ><br><b><%= foundUser.username %></b></a></li>
+    <br><br><br><br><br><br><br>
+    <li><a href="/AI_text_summarizer"><strong> AI<br> Assistant</strong></a></li>
+    <br><br><br><br><br><br><br><br>    
+    <li id="home" type="Icon"><a href="/logout" title="logout" onclick="logout()"><img src="/images/download.jpeg" > Logout</a></li>
     </ul>
-</div>
 </nav>
+
 <body>
-<!-- NOTES BASIC  -->
-    <!-- <div id="contain">
-        <div id="list-header">
-            <div id="addNoteDiv" onclick="popup()">
-                <i class="fa-solid fa-plus"></i>
-            </div>
-            <div class="blankDiv"></div>
-            <div class="blankDiv"></div>
-        </div>
-        
-        <div id="list-container">
-            <ul id="notes-list"></ul>
-        </div>
-    </div> -->
-<!-- . -->
-
-    <footer id="footer">
-        <p>Copyright 2024 &copy; Note It Down. All rights reserved.</p>
-    </footer>
-
+    <form action="/upload" method="post" >
+    <input id="file_upload" type="file">
+    <button type="submit">Upload</button>
+    </form>
 </body>
+<footer id="footer">
+    <p>Copyright 2024 &copy; OrganiseIT. All rights reserved.</p>
+</footer>
 <script>
     function logout() {
-        // let a =confirm("Do you want to logout ?");
-        alert("Logged Out Successfully");
+        let a =confirm("Do you want to logout ?");
+        if(a){
+            alert("Logged Out Successfully");
+        }
+        else{
+            stop();
+        }
     }
 </script>
 </html>
