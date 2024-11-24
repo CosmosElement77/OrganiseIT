@@ -2,28 +2,32 @@
 <head>
 <meta charset="utf-8" lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Helper </title>
+<title>OrganiseIT</title>
+<link rel="icon" href="/images/Logo.png" >
 <link rel="stylesheet" href="/styles/ai.css" >
 </head>
 
 
 <body>
-	<nav><a href="/" id="home"><img src="/images/Icon.png"></a></nav>
-	<h1>Jazy</h1>
+	<nav>
+		<a href="/home" id="home"><img src="/images/Logo.png"></a>
+		<span class="box">Hello <%= username %> ! </span>
+	</nav>
+	<h1 >Jazy</h1>
 	<h4>Your all time Study-Mate</h4>
-	 <textarea type="text" id="input" name="search_query" placeholder="Type Your Query here ...">	</textarea>
-	 <i>Answer:</i>
+	 <textarea type="text" id="input" name="search_query" placeholder="Type Your Query here ..."></textarea>
+	 <i >Answer:</i>
 	 <button id="ask" onclick="fetchData()">Ask</button>
 	<output id="output"></output>
 </body>
 <script>
 
 ////////////////////////////Seperator/////////////////////////////		
-	    textarea = document.querySelector("#input");
-        textarea.addEventListener('input', autoResize, false);
+	textarea = document.querySelector("#input");
+    textarea.addEventListener('input', autoResize, false);
 
-        function autoResize() 
-		{   this.style.height = 'auto';this.style.height = this.scrollHeight + 'px';}
+    function autoResize() 
+	{   this.style.height = 'auto';this.style.height = this.scrollHeight + 'px';}
 
 ////////////////////////////Seperator/////////////////////////////		
 	async function fetchData()
