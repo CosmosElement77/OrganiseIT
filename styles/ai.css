@@ -1,13 +1,21 @@
 html{
-    background-color: #394a3c;
+    /* background-color: #394a3c; */
+background-color: rgb(45, 45, 45);
     overflow-x: hidden;
     /* border: 2px solid black; */
 }
 #home img{
-    padding: 5px 15px 0 15px;
-    width:40px;height: 35px;
-    filter: invert();/*Inverses the colors of the object*/
+    padding: 10px 0px 0px 15px;
+    width:60px;height: 55px;
+    /* filter: brightness(196%); */
+    filter: saturation(200%);
     user-select: none;/*Makes the content unselectable using the mouse cursor*/
+}
+#box{
+    width: 200px;height:90px;z-index: 2;
+    position: absolute;
+    top: 80px;
+    filter: invert();
 }
 h1{
     position: relative;
@@ -40,7 +48,7 @@ h4{
     color: rgb(30, 50, 30);
 }
 
-i{position: relative;top: 115px;left: -10%;color: aquamarine;
+i{position: relative;top: 115px;left: -6%;color: aquamarine;
     text-decoration: underline;user-select: none;}
 #ask{
     position: relative;
@@ -53,7 +61,7 @@ i{position: relative;top: 115px;left: -10%;color: aquamarine;
     cursor: pointer;
 }
 #ask:hover{
-    background-color: black;color: white;border-radius: 50%;
+    background-color: rgb(161, 245, 245);border-radius: 50%;
     width:50px;height: 50px;
     transition: ease 1s;
 }
@@ -72,32 +80,81 @@ output{
     font-weight: 600;color: rgb(244, 244, 127);
 }
 
+/*Animation under welcome name*/
+.box {
+    background: hsl(0, 0%, 100%);
+    padding: 16px 24px;
+    position: relative;
+    top: -10px;
+    left: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.01);
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0px;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      transform: scale(0.9) translateZ(0);
+      filter: blur(15px);
+      background: linear-gradient(
+        to left,
+        rgb(45, 212, 156),
+        rgb(35, 161, 240),
+        rgb(99, 228, 224),
+        rgb(83, 201, 240),
+        rgb(43, 125, 176),
+        rgb(26, 235, 231)
+      );
+      background-size: 200% 200%;
+      animation: animateGlow 1.25s ease infinite;
+    }
+  }
+  
+
+@keyframes animateGlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
 @media screen and (max-width:600px)  {
     html{
         overflow-x: hidden;
-
-    }
-    body{
-        width: 98%;height: 100%;
     }
     #home img{
         /* filter: invert(); */
-        width: 3.4em;height: 3em;
+        width: 3em;height: 2.7em;
     }
     body h1{
-        font-size: 6em;left: 110px;width: 90px;
+        font-size: 4em;left: 110px;
+        width: 100px;
     }
     body h4{
-        font-size: 14px;width: 200px;left: 105px;
+        font-size: 12px;left: 165px;
+        width: 180px;
     }
     #ask{
         width: 60px;top: 100px;
-        margin-left: -100px;
+        margin-left: -80px;
     }
     #input{
-        width: 300px;left: 40px;top: 60px;
+        width: 250px;left: 40px;top: 60px;
     }
-    i{margin-left: -235px;top: 134px;}
+    .box{
+        left: 30px;
+        
+    }
+    #output{
+        padding-right: 5px;
+    }
+    i{margin-left: -205px;top: 134px;}
     output{
         left: 47px;width: 300px;top: 140px;
     }

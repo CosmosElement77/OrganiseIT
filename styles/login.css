@@ -4,6 +4,9 @@
   }
 html{
     overflow-x: hidden;overflow-y: hidden;
+    zoom: 100%;
+    background-color: #46624b;
+
 }
 
 #headin, #headi{
@@ -13,15 +16,18 @@ html{
     top:10% ;
     justify-content: center;text-align: center;
     display: flexbox;user-select: none;
-    /* text-shadow: 2px 7px 12px; */
 }
 
 .btn{
   background-color: #c7bfb4;
   color: black;
-  position: relative;padding: 4px;left: 47%;right: 50%;top:10em;
+  position: relative;padding: 4px;left: 47%;right: 50%;top:8em;
   font-weight: 800;font-family:Roboto;
 }
+#op{
+    left: 500px;background-color: black;
+}
+
 .bt{
     background-color: #c7bfb4;
     color: black;
@@ -29,62 +35,71 @@ html{
     font-weight: 800;font-family:Roboto;
 }
 
-
 /*/////////////////////////////////////////////*/
 #home img{
   position: fixed;
     margin: 10px;
     padding: 5px 15px 0 15px;
-    width:60px;height: 35px;
+    width:82px;height: 55px;
 }
-button:hover{
+#btn:hover{
     box-shadow: rgba(118, 118, 118, 0.447) 1px 3px 5px 2px;
     padding: 0.6em;
     color: black;
-    cursor: pointer;scale: 1.1;transition: ease 1s;    
+    cursor: pointer;scale: 1.05;transition: ease-in-out 1s;    
+}
+#op:hover{
+    background-color: rgb(5, 68, 70);
+    transition: 0.7s ease;
 }
 .inp{
     border: none;outline: none;
     width: 360px ;height: 50px;
     background: transparent;font-weight: 600;font-size: medium;
     margin-bottom: 50px;
-    padding-right: 15px;
     border-bottom: black solid 1px;
     position: relative;
-    left: 36.5%;
-    top: 10em;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    top: 9em;
     font-family: 'Courier New', Courier, monospace;
 }
-::-webkit-input-placeholder{color:rgb(238, 227, 175);justify-content: center;}
+::-webkit-input-placeholder{color:rgb(238, 227, 175);justify-content:center;}
 .inp:focus{
-    /* box-shadow: rgb(83, 83, 83) 1px 1px 20px 2px; */
     scale: 1.2;
-    background: none;
-    /* border:rgb(0, 198, 248) solid 2px; */
+    background: transparent;
     border: 0 0 0 3px;
     transition: linear 1s;
 }
+
 .inp:hover{
     scale: 1.2;border-bottom: black solid 2px;font-weight: 600;
     transition: 1s ease;
 }
 .inp:not(:hover){
-    transition: 1s ease;}
+    transition: 1s ease;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
 #footer{
     position: fixed;margin-left: 2%;margin-top: 50px;
     bottom: 0;border-top: 2px solid rgba(0, 0, 0, 0.852);width :96%;
     color: rgba(0, 0, 0, 0.852);
     justify-content: center;text-align: center;
-    
 }
+
 @media screen and (max-width:900px)  {
 
-    .inp{width: 300px;height: 50px;left: 40px;font-size: large;transition: 1s ease;} 
+    .inp{width: 300px;height: 50px;font-size: large;transition: 1s ease;} 
     .inp:hover{scale:1.1;} 
-    h1{margin-left: 10px;font-size: 260%;}
-    .btn{top: 15em;left: 25%;width: 200px;height: 40px;transition: 1s ease;}
+    h1{margin-left: 10px;font-size: 260%;padding-top: 70px;}
+    .btn{top: 11em;left: 23%;width: 200px;height: 40px;transition: 1s ease;}
 
-    #op{top: 11.5em;left: 15%;width: 40px;height: 60px;transition: 1s ease;}
+    #op{top: 15.5em;left:-120px;width: 60px;height: 40px;transition: 1s ease;}
     #home img{margin-top:10px;scale: 1.4;transition: 1s ease;}
     #Text{
         position: relative;font-size: small;
@@ -94,7 +109,6 @@ button:hover{
 /*/////////////////////////////////////////////*/ 
 
 .area{
-    /* background: #394a3c; */
     background-color: #46624b;
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
     width: 100%;
@@ -182,6 +196,12 @@ button:hover{
     width: 150px;
     height: 150px;
     animation-delay: 0s;
+    animation-duration: 11s;
+}.circles li:nth-child(11){
+    left: 15%;
+    width: 120px;
+    height: 120px;
+    animation-delay: 1s;
     animation-duration: 11s;
 }
 @keyframes animate {
