@@ -1,11 +1,11 @@
 {
   "name": "organiseit",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon /api/app.js",
-    "start": "node /api/app.js"
+    "server": "nodemon /api/index.js",
+    "start": "node /api/index.js"
   },
   "keywords": [],
   "author": "Cosmos",
