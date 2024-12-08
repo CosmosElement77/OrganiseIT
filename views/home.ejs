@@ -15,34 +15,30 @@
 
 </head>
 <body class="bg-gray-200">
-    <div class="min-h-screen p-8">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex justify-between items-center mb-8">
-                <h1 class="text-3xl font-bold">Welcome, <%= foundUser.username %></h1>
+<div class="min-h-screen p-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold">Welcome, <%= foundUser.username %></h1>
+            <div >
+            <a href="/AI_text_summarizer" class="bg-gray-700 hover:bg-gray-900 
+            hover:text-blue-500 text-blue-300 font-bold py-2 px-4 rounded">AI</a>
 
-                <div >
-                    <a href="/AI_text_summarizer" class="bg-gray-700 hover:bg-gray-900 hover:text-blue-500 text-blue-300 font-bold py-2 px-4 rounded">
-                        AI
-                    </a>
-                    <a href="/logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" id="first">
-                        Logout
-                    </a>
-                </div>
+            <a href="/logout" class="bg-red-500 hover:bg-red-700 
+            text-white font-bold py-2 px-4 rounded" id="first">Logout</a>
             </div>
+        </div>
 
-
-            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-                <h2 class="text-xl font-bold mb-4">Upload New File</h2>
-                <form action="/upload" method="POST" enctype="multipart/form-data">
-                    <div class="flex items-center space-x-4">
-                        <input type="file" id="myFile" name="document" x class="flex-1 p-2 border rounded" required>
-                        <button type="submit" style="cursor: pointer;"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Upload
-                        </button>
-                    </div>
-                </form>
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-xl font-bold mb-4">Upload New File</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="flex items-center space-x-4">
+            <input type="file" id="myFile" name="document" x class="flex-1 p-2 border rounded" required>
+            
+            <button type="submit" style="cursor: pointer;"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Upload</button>
             </div>
+        </form>
+        </div>
 
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h2 class="text-xl font-bold mb-4">Your Files</h2>
@@ -51,12 +47,12 @@
                         <% foundUser.files.forEach(file => { %>
                             <div class="flex items-center justify-between p-4 bg-gray-50 rounded">
                                 <div>
-                                    <p class="font-semibold"><%= file.originalName %></p>
+                                    <p class="font-semibold"><%= file.filename %></p>
                                     <p class="text-sm text-gray-500">
                                         Uploaded: <%= new Date(file.uploadDate).toLocaleString() %>
                                     </p>
                                 </div>
-                                <a href="/download/<%= file.filename %>" 
+                                <a href="<%= file.fileURL %>" 
                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                     Download
                                 </a>
@@ -70,5 +66,4 @@
         </div>
     </div>
 </body>
-<input type="file" id="myFile">
 </html>
