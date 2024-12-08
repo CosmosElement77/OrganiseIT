@@ -4,39 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrganiseIT</title>
-    <link rel="stylesheet" href="../styles/home.css">
-    <link rel="stylesheet" href="/styles/css/bootstrap.min.css">
     <link rel="icon" href="/images/Logo.png" >    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" preload>
+
+    <style>
+        #first{
+            margin-left: 20px;
+        }
+    </style>
+
 </head>
+<body class="bg-gray-200">
+    <div class="min-h-screen p-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold">Welcome, <%= foundUser.username %></h1>
 
-<nav class=" navbar-left" id="navbox">
-    <ul >
-    <li id="pfp" type="Icon"><a><img src="/images/contact.jpeg" alt="pfp icon" ><br><b><%= foundUser.username %></b></a></li>
-    <br><br><br><br><br><br><br>
-    <li><a href="/AI_text_summarizer"><strong> AI<br> Assistant</strong></a></li>
-    <br><br><br><br><br><br><br><br>    
-    <li id="home" type="Icon"><a href="/logout" title="logout" onclick="logout()"><img src="/images/download.jpeg" > Logout</a></li>
-    </ul>
-</nav>
+                <div >
+                    <a href="/AI_text_summarizer" class="bg-gray-700 hover:bg-gray-900 hover:text-blue-500 text-blue-300 font-bold py-2 px-4 rounded">
+                        AI
+                    </a>
+                    <a href="/logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" id="first">
+                        Logout
+                    </a>
+                </div>
+            </div>
 
-<body>
-    <form action="/upload" method="post" >
-    <input id="file_upload" type="file">
-    <button type="submit">Upload</button>
-    </form>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-xl font-bold mb-4">Upload New File</h2>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="flex items-center space-x-4">
+                        <input type="file" id="myFile" name="document" x class="flex-1 p-2 border rounded" required>
+                        <button type="submit" style="cursor: pointer;"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Upload
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Your Files</h2>
+                <% if (foundUser.files && foundUser.files.length > 0) { %>
+                    <div class="space-y-4">
+                        <% foundUser.files.forEach(file => { %>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded">
+                                <div>
+                                    <p class="font-semibold"><%= file.originalName %></p>
+                                    <p class="text-sm text-gray-500">
+                                        Uploaded: <%= new Date(file.uploadDate).toLocaleString() %>
+                                    </p>
+                                </div>
+                                <a href="/download/<%= file.filename %>" 
+                                   class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Download
+                                </a>
+                            </div>
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <p class="text-gray-500">No files uploaded yet.</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
 </body>
-<footer id="footer">
-    <p>Copyright 2024 &copy; OrganiseIT. All rights reserved.</p>
-</footer>
-<script>
-    function logout() {
-        let a =confirm("Do you want to logout ?");
-        if(a){
-            alert("Logged Out Successfully");
-        }
-        else{
-            stop();
-        }
-    }
-</script>
+<input type="file" id="myFile">
 </html>
