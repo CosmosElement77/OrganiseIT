@@ -13,32 +13,35 @@
 		<a href="/home" id="home"><img src="/images/Logo.png"></a>
 		<span class="box">Hello <%= username %> ! </span>
 	</nav>
-	<h1 >Jazy</h1>
+	<h1 >Jazy</h1>		
+	
 	<h4>Your all time Study-Mate</h4>
 	 <textarea type="text" id="input" name="search_query" placeholder="Type Your Query here ..."></textarea>
-	 <i >Answer:</i>
 	 <button id="ask" onclick="fetchData()">Ask</button>
-	<output id="output"></output>
+	 <i >Answer:</i>
+	 <div id="loading"></div>
+	 <!-- <div id="loading2"></div> -->
+	<output id="output">	</output>
 </body>
 <script>
 
 ////////////////////////////Seperator/////////////////////////////		
 	textarea = document.querySelector("#input");
     textarea.addEventListener('input', autoResize, false);
-
     function autoResize() 
 	{   this.style.height = 'auto';this.style.height = this.scrollHeight + 'px';}
 
 ////////////////////////////Seperator/////////////////////////////		
 	async function fetchData()
 	{
+		let loader = document.getElementById("loading");
+		loader.style.display="block";
 		let x= document.getElementById("input").value;
 		let y= document.getElementById("output");
 		const key_value="<%= keyy %>";
 		// var quoteText = `'${key_value}'`
 		// console.log(quoteText);
 		y.innerText="";
-
 		const url = 'https://chatgpt-42.p.rapidapi.com/gpt4';
 		const options = {
 			method: 'POST',
@@ -66,17 +69,21 @@
 			const answer = jsonObject.result;
 			// alert(result);
 			if(answer!=undefined)
-			y.innerText+=(answer);
+			{y.innerText+=(answer);
+			loader.style.display="none";}
 			else
 			{
-				y.innerText+="API Limit exceeded ";
+				y.innerText+="API limit exceeded ";
+				loader.style.display="none";
 			}
 
 		} catch (error) {
 			console.error(error);
 			y.innerText+="API Limit exceeded , upgrade your plan on https://rapidapi.com/rphrp1985/api/chatgpt-42";
+			loader.style.display="none";
+
 		}
-}
+	}
 ////////////////////////////Seperator/////////////////////////////		
 </script>
 </html>
