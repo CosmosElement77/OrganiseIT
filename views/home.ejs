@@ -9,7 +9,8 @@
 
     <style>
         #first{
-            margin-left: 20px;
+            margin-right: 10vw;
+            margin-left: 5vw;
         }
     </style>
 
@@ -22,9 +23,10 @@
             <div >
             <a href="/AI_text_summarizer" class="bg-gray-700 hover:bg-gray-900 
             hover:text-blue-500 text-blue-300 font-bold py-2 px-4 rounded">AI</a>
-
+            </div>
+            <div>
             <a href="/logout" class="bg-red-500 hover:bg-red-700 
-            text-white font-bold py-2 px-4 rounded" id="first">Logout</a>
+            text-white font-bold py-2 px-3 rounded" id="first">Logout</a>
             </div>
         </div>
 
@@ -52,8 +54,8 @@
                                         Uploaded: <%= new Date(file.uploadDate).toLocaleString() %>
                                     </p>
                                 </div>
-                                <a href="<%= file.fileURL %>" target="_blank"  
-                                   class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                <a href="<%= file.fileURL %>" target="_blank" 
+                                   class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded">
                                     Download
                                 </a>
                             </div>
