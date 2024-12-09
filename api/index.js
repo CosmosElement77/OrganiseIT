@@ -93,10 +93,10 @@ app.post("/register", (req, res, next) => {
 /////////////////////////////////////login page///////////////////////////////////
 app.get('/login', (req, res) => { res.render("login");});
 app.post("/login", async(req, res) => {
-    let { usermail, password } = req.body;    
-    const foundUser = await (await db).collection("Users").findOne({usermail});
+    let { username, password } = req.body;    
+    const foundUser = await (await db).collection("Users").findOne({username});
     // req.session.userId = foundUser._id;
-    let username=foundUser.username;
+    // let username=foundUser.username;
     // Check for existing user
     if (!foundUser) {
             res.status(401).send("Invalid username. Please try again.");
