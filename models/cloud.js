@@ -14,7 +14,7 @@ router.post("/",(req,res,next)=>{
     if(!req.session.username)
     { res.redirect('/login');}
     const file=req.files.document;
-    const originalFilename = file.name.split;
+    const originalFilename = file.name;
      cloudinary.uploader.upload(file.tempFilePath , { resource_type: "raw" , public_id: originalFilename  },async (error, result) => {
         // console.log(result)
         const username=req.session.username;
